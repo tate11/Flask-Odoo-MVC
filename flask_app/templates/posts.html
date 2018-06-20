@@ -1,0 +1,14 @@
+{% extends 'main_layout.html'%}
+
+{% block body_content %}
+<h1 class="page-header">Hi, {{ user.username }}!</h1>
+{% for post in posts %}
+<div class="container">
+  <div class="main">
+  <p>{{ post.author.username }} says: <b>{{ post.body }}</b>
+  </p>
+</div>
+</div>
+{% endfor %}
+
+{% endblock %}

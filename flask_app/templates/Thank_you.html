@@ -1,0 +1,26 @@
+{% extends "main_layout.html" %}
+
+
+{% block body_content %}
+
+<div class="container">
+  <div class="main">
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+   <ul class="alert alert-info">
+       {% for message in messages %}
+       {{ message }}
+       {% endfor %}
+   </ul>
+   {% endif %}
+   {% endwith %}
+</div>
+</div>
+
+<div class="container">
+  <div class="main">
+    <h2 class="page-header">Thank You!!!</h2>
+  </div>
+</div>
+
+{% endblock %}

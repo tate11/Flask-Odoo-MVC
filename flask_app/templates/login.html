@@ -1,0 +1,41 @@
+{% extends 'main_layout.html'%}
+
+{% block body_content%}
+<div class="container">
+  <div class="main">
+    <h1 class="text-center page-header">Sign In</h1>
+
+    <!--Display error or messages -->
+    {% with messages = get_flashed_messages() %}
+       {% if messages %}
+       <ul class="alert alert-info">
+           {% for message in messages %}
+           {{ message }}
+           {% endfor %}
+       </ul>
+       {% endif %}
+       {% endwith %}
+
+     <form class="form" action="" method="post">
+         {{ form.hidden_tag() }}
+         <p>
+             {{ form.username.label }}<br>
+             {{ form.username(class_="form-control",size=32) }}<br>
+             {% for error in form.username.errors %}
+             <span style="color: red;">[{{ error }}]</span>
+             {% endfor %}
+         </p>
+         <p>
+             {{ form.password.label }}<br>
+             {{ form.password(class_="form-control",size=32) }}<br>
+             {% for error in form.password.errors %}
+             <span style="color: red;">[{{ error }}]</span>
+             {% endfor %}
+         </p>
+         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+         <p>{{ form.submit(class_="btn btn-success") }}</p>
+     </form>
+  </div>
+</div>
+
+{% endblock %}
